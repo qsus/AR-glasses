@@ -19,6 +19,9 @@ public:
         if (!display.begin(SSD1306_SWITCHCAPVCC)) {
             return false;
         }
+        //display.ssd1306_command(0xA0); // horizontal flip
+        //display.ssd1306_command(0xC0); // vertical flip
+
         display.clearDisplay();
         display.setTextColor(SSD1306_WHITE);
         display.display();
