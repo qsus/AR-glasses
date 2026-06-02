@@ -23,6 +23,7 @@ private:
     size_t campCount = 0;
 
     void onWrite(NimBLECharacteristic* pChar, NimBLEConnInfo& connInfo) override {
+        // Incoming data format: 16b azimuth in degrees, 16b distance in meters, 16b logo (3×15), Little-Endian
         std::string value = pChar->getValue();
         size_t len = value.length();
         size_t structSize = sizeof(CampInfo);

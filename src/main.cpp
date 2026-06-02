@@ -15,7 +15,10 @@ void loop() {
     for (size_t i = 0; i < count; i++) { // For each camp
         uint16_t azimuth = activeCamps[i].azimuth;
 		uint16_t distance = activeCamps[i].distance;
-		Serial.println(azimuth + distance);
+        Serial.print(azimuth);
+        Serial.print("° ");
+        Serial.print(distance);
+        Serial.println("m");
     }
 	Serial.println();
 
