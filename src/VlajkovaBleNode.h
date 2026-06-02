@@ -8,11 +8,7 @@
 
 #define MAX_CAMPS 20 
 
-struct __attribute__((packed)) CampInfo {
-    uint16_t azimuth;
-    uint16_t distance;
-    uint16_t sign;
-};
+#include "CampInfo.h"
 
 class VlajkovaBleNode : public NimBLECharacteristicCallbacks {
 private:
@@ -23,7 +19,7 @@ private:
     size_t campCount = 0;
 
     void onWrite(NimBLECharacteristic* pChar, NimBLEConnInfo& connInfo) override {
-        // Incoming data format: 16b azimuth in degrees, 16b distance in meters, 16b logo (3×15), Little-Endian
+        // Incoming data format: 16b azimuth in degrees, 16b distance in meters, 16b logo (3×15), Little-Endian, example 5A009600AAAA 90° 150m
         std::string value = pChar->getValue();
         size_t len = value.length();
         size_t structSize = sizeof(CampInfo);
