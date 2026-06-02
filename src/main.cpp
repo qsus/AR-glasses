@@ -37,11 +37,12 @@ void loop() {
 	Serial.println();
 
     if (count == 0) { // print example data
-        count = 3;
-        static CampInfo exampleCamps[3] = {
-            {90, 150, 1},
-            {180, 300, 2},
-            {270, 450, 3}
+        count = 4;
+        static CampInfo exampleCamps[4] = {
+            {90, 100, 0b101010101010101},
+            {180, 50, 0b111000111000111},
+            {180, 10, 0b111000111000111},
+            {270, 450, 0b111111111111111}
         };
         activeCamps = exampleCamps;
     }
