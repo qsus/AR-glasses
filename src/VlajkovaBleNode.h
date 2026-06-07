@@ -40,7 +40,7 @@ private:
 
 public:
     void begin() {
-        NimBLEDevice::init("XIAO_Vlajkova");
+        NimBLEDevice::init("Vlajkova");
         pServer = NimBLEDevice::createServer();
         NimBLEService* pService = pServer->createService(SERVICE_UUID);
         
@@ -54,6 +54,11 @@ public:
         
         NimBLEAdvertising* pAdvertising = NimBLEDevice::getAdvertising();
         pAdvertising->addServiceUUID(SERVICE_UUID);
+
+        NimBLEAdvertisementData scanResponseData;
+        scanResponseData.setName("Vlajkova");
+        pAdvertising->setScanResponseData(scanResponseData);
+
         pAdvertising->start();
     }
 
